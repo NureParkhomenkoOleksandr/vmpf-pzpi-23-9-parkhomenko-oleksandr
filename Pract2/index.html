@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quotes</title>
+</head>
+<body>
+
+<h1>Quote of the Day</h1>
+
+<select id="category">
+    <option value="">Choose category</option>
+</select>
+
+<p id="quote">Select category</p>
+
+<script>
+    let quotes = {};
+
+    fetch("quotes.json")
+        .then(response => response.text())
+        .then(text => {
+            quotes = JSON.parse(text);
+
+            for (let category in quotes) {
+                document.getElementById("category").innerHTML +=
+                    `<option value="${category}">${category}</option>`;
+            }
+        });
+
+    document.getElementById("category").onchange = function () {
+        let selectedCategory = this.value;
+
+        if (selectedCategory === "") {
+            document.getElementById("quote").textContent = "Select category";
+        } else {
+            document.getElementById("quote").textContent = quotes[selectedCategory];
+        }
+    };
+</script>
+
+</body>
+</html>

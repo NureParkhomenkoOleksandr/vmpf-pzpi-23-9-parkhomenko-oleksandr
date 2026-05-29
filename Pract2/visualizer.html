@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Visualizer</title>
+</head>
+<body>
+
+<h1>JSON Visualizer</h1>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year</th>
+        <th>Status</th>
+    </tr>
+
+    <tbody id="bookTable"></tbody>
+</table>
+
+<script>
+    fetch("books.json")
+        .then(response => response.text())
+        .then(text => {
+            let books = JSON.parse(text);
+            let table = document.getElementById("bookTable");
+
+            books.forEach(book => {
+                table.innerHTML += `
+                    <tr>
+                        <td>${book.title}</td>
+                        <td>${book.author}</td>
+                        <td>${book.year}</td>
+                        <td>${book.status}</td>
+                    </tr>
+                `;
+            });
+        });
+</script>
+
+</body>
+</html>
