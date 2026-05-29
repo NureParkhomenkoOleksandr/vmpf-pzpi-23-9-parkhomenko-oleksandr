@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Donation Campaigns</title>
+</head>
+<body>
+
+<h1>Donation Campaigns</h1>
+
+<p>
+    <a href="{% url 'organization_list' %}">Organizations</a> |
+    <a href="{% url 'campaign_create' %}">Add new campaign</a>
+</p>
+
+<form method="get">
+    <label>Search:</label>
+    <input type="text" name="search" placeholder="Campaign title">
+
+    <label>Organization:</label>
+    <select name="organization">
+        <option value="">All organizations</option>
+
+        {% for organization in organizations %}
+            <option value="{{ organization.id }}">
+                {{ organization.name }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label>Sort by:</label>
+    <select name="sort">
+        <option value="">Default</option>
+        <option value="title">Title</option>
+        <option value="goal">Goal amount</option>
+        <option value="collected">Collected amount</option>
+    </select>
+
+    <button type="submit">Apply</button>
+</form>
+
+<br>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Title</th>
+        <th>Organization</th>
+        <th>Description</th>
+        <th>Goal amount</th>
+        <th>Collected amount</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for campaign in campaigns %}
+    <tr>
+        <td>{{ campaign.title }}</td>
+        <td>{{ campaign.organization.name }}</td>
+        <td>{{ campaign.description }}</td>
+        <td>{{ campaign.goal_amount }}</td>
+        <td>{{ campaign.collected_amount }}</td>
+        <td>
+            <a href="{% url 'campaign_update' campaign.id %}">Edit</a>
+            |
+            <a href="{% url 'campaign_delete' campaign.id %}">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6">No campaigns found.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

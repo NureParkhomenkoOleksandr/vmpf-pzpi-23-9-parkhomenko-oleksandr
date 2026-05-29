@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Campaign Form</title>
+</head>
+<body>
+
+<h1>Donation Campaign Form</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Save</button>
+</form>
+
+<p>
+    <a href="{% url 'campaign_list' %}">Back to campaigns</a>
+</p>
+
+</body>
+</html>

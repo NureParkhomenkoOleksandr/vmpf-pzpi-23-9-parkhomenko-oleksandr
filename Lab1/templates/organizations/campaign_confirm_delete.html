@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Campaign</title>
+</head>
+<body>
+
+<h1>Delete Campaign</h1>
+
+<p>Are you sure you want to delete "{{ campaign.title }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+
+    <button type="submit">Yes</button>
+</form>
+
+<p>
+    <a href="{% url 'campaign_list' %}">Cancel</a>
+</p>
+
+</body>
+</html>
