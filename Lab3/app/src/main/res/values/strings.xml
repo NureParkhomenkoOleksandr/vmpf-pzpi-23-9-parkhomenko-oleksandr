@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Мобільний блог</string>
+    <string name="add_article">Нова стаття</string>
+    <string name="empty_blog">Поки немає статей. Додайте першу публікацію.</string>
+    <string name="empty_category">У категорії «%1$s» поки немає статей.</string>
+    <string name="all_categories">Усі</string>
+    <string name="default_category">Без категорії</string>
+    <string name="dialog_add_article">Додати статтю</string>
+    <string name="dialog_edit_article">Редагувати статтю</string>
+    <string name="dialog_add_comment">Додати коментар</string>
+    <string name="article_title_hint">Заголовок</string>
+    <string name="article_category_hint">Категорія</string>
+    <string name="article_content_hint">Текст статті</string>
+    <string name="comment_author_hint">Автор</string>
+    <string name="comment_body_hint">Коментар</string>
+    <string name="required_field">Заповніть поле</string>
+    <string name="add">Додати</string>
+    <string name="save">Зберегти</string>
+    <string name="cancel">Скасувати</string>
+    <string name="delete">Видалити</string>
+    <string name="edit">Редагувати</string>
+    <string name="comment">Коментар</string>
+    <string name="comments">Коментарі</string>
+    <string name="no_comments">Коментарів поки немає.</string>
+    <string name="anonymous">Анонім</string>
+    <string name="delete_article_title">Видалити статтю?</string>
+    <string name="delete_article_message">Статтю та всі її коментарі буде видалено.</string>
+</resources>
